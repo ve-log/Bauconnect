@@ -10,13 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0b2a55; --red:#a31218; --ink:#16233a; --muted:#53627a;
+  --navy:#0c2b5b; --red:#a11217; --steel:#6e7886; --ink:#16233a; --muted:#53627a;
   --bg:#fafbfc; --panel:#eef2f7; --line:#d5dce6; --white:#fff;
   --wifi:#0a6bb5;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --navy:#8fb4ee; --red:#ff6b70; --ink:#e8edf5; --muted:#a3b0c4;
+    --navy:#8fb4ee; --red:#ff6b70; --steel:#9aa6b8; --ink:#e8edf5; --muted:#a3b0c4;
     --bg:#0c1524; --panel:#13203a; --line:#25365a; --white:#13203a; --wifi:#6db3ee;
   }
 }
@@ -33,6 +33,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset
 .wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
 section{padding:4.5rem 0}
 .alt{background:var(--panel)}
+h2::after{content:"";display:block;width:90px;height:5px;margin-top:.7rem;background:linear-gradient(90deg,var(--red) 0 45%,var(--steel) 45%)}
+.contact h2::after{background:linear-gradient(90deg,#fff 0 45%,#9aa6b8 45%)}
 .lead{font-size:1.2rem;color:var(--muted)}
 
 /* Header */
@@ -48,7 +50,12 @@ nav a:hover{color:var(--red)}
 @media(max-width:760px){nav a:not(.btn){display:none}}
 
 /* Hero */
-.hero{padding:4rem 0 3.5rem;background:var(--white);border-bottom:6px solid var(--navy)}
+.hero{padding:4rem 0 3.5rem;background:var(--white);border-bottom:0;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:linear-gradient(90deg,var(--navy) 0 50%,var(--red) 50% 80%,var(--steel) 80%)}
+.hero-logo{display:block;width:min(100%,430px);height:auto;margin:0 0 1.6rem;background:#fff;border-radius:6px}
+.lines{display:grid;gap:5px;width:140px;margin:0 0 1.2rem}
+.lines i{height:4px;background:linear-gradient(90deg,var(--steel),transparent)}
+.lines i:first-child{background:linear-gradient(90deg,var(--red),transparent)}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center}
 .hero h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800}
 .hero h1 span{display:block;color:var(--red)}
@@ -60,14 +67,15 @@ nav a:hover{color:var(--red)}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
 
 /* Topology */
-.topo{background:var(--navy);border-radius:6px;padding:1.5rem;color:#fff}
+.topo{background:#0c2b5b;border-radius:6px;padding:1.5rem;color:#fff}
 .topo svg{width:100%;height:auto;display:block}
 .topo text{font-family:"Barlow",Arial,sans-serif}
 
 /* Grids */
 .grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:2rem}
-.item{background:var(--white);border-left:5px solid var(--navy);padding:1.2rem 1.3rem}
+.item{background:var(--white);border-left:5px solid var(--steel);padding:1.2rem 1.3rem}
 .item.r{border-left-color:var(--red)}
+th{border-bottom:3px solid var(--navy)!important}
 .item p{margin:0;color:var(--muted);font-size:1rem}
 .item ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--muted)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
@@ -100,10 +108,10 @@ th,td{text-align:left;padding:.8rem 1rem;border-bottom:1px solid var(--line)}
 th{color:var(--navy);font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.2rem}
 
 /* Contact */
-.contact{background:var(--navy);color:#fff}
+.contact{background:#0c2b5b;color:#fff}
 .contact h2,.contact p{color:#fff}
 .contact .btn{background:#fff;color:#0b2a55}
-footer{background:#08203f;color:#c3cde0;padding:2rem 0;font-size:.95rem}
+footer{background:#071c3a;color:#c3cde0;padding:2rem 0;font-size:.95rem}
 footer a{color:#fff}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .contact,:root:not([data-theme="light"]) .topo{background:#0b2a55}}
 </style>
@@ -128,6 +136,7 @@ footer a{color:#fff}
 <div class="hero">
   <div class="wrap hero-grid">
     <div>
+      <img class="hero-logo" src="logo.png" alt="VE-LOG GmbH – BAUCONNECT, Internet für jeden Bauplatz">
       <h1>Ihre Baustelle.<span>Unsere Verbindung.</span></h1>
       <p class="lead">Internet und Netzwerktechnik für Baustellen, temporäre Standorte und Bauprojekte in ganz Deutschland – schnell eingerichtet, professionell betreut und flexibel erweiterbar.</p>
       <div class="cta">
@@ -148,7 +157,7 @@ footer a{color:#fff}
         <circle cx="200" cy="68" r="6" fill="#6db3ee" stroke="none"/>
         <text x="200" y="22" fill="#fff" stroke="none" text-anchor="middle" font-size="15" font-weight="600">Starlink / 5G</text>
         <path d="M200 76v34"/>
-        <rect x="130" y="110" width="140" height="38" rx="3" fill="#a31218" stroke="none"/>
+        <rect x="130" y="110" width="140" height="38" rx="3" fill="#a11217" stroke="none"/>
         <text x="200" y="134" fill="#fff" stroke="none" text-anchor="middle" font-size="15" font-weight="600">Router / Firewall</text>
         <path d="M200 148v26"/>
         <rect x="130" y="174" width="140" height="38" rx="3" fill="none"/>
@@ -311,8 +320,8 @@ footer a{color:#fff}
   <div class="wrap">
     <h2>Ihre Baustelle braucht Internet?</h2>
     <p>Schicken Sie uns Standort, Containeranzahl, Nutzerzahl und Laufzeit. Wir melden uns mit einer Einschätzung und einem Angebot.</p>
-    <p><a class="btn" href="mailto:info@ve-log.de?subject=Anfrage%20BAUCONNECT&amp;body=Standort%3A%0AAnzahl%20Container%3A%0AAnzahl%20Nutzer%3A%0AGeplante%20Laufzeit%3A%0AAnsprechpartner%20und%20Telefon%3A">Anfrage per E-Mail</a></p>
-    <p style="font-size:.95rem;opacity:.85;margin-bottom:0">Oder direkt: <a href="mailto:info@ve-log.de" style="color:#fff">info@ve-log.de</a></p>
+    <p><a class="btn" href="mailto:technik@ve-log.de?subject=Anfrage%20BAUCONNECT&amp;body=Standort%3A%0AAnzahl%20Container%3A%0AAnzahl%20Nutzer%3A%0AGeplante%20Laufzeit%3A%0AAnsprechpartner%20und%20Telefon%3A">Anfrage per E-Mail</a></p>
+    <p style="font-size:.95rem;opacity:.85;margin-bottom:0">Oder direkt: <a href="mailto:technik@ve-log.de" style="color:#fff">technik@ve-log.de</a></p>
   </div>
 </section>
 
@@ -320,6 +329,7 @@ footer a{color:#fff}
 
 <footer>
   <div class="wrap">
+    <img src="logo.png" alt="BAUCONNECT – VE-LOG GmbH" style="height:70px;width:auto;background:#fff;border-radius:6px;padding:4px 10px;margin-bottom:1rem;display:block">
     <p style="margin:0 0 .4rem"><b>BAUCONNECT</b> – eine Marke der VE-LOG GmbH · Internet für jeden Bauplatz.</p>
     <p style="margin:0">Impressum und Datenschutz: bitte hier verlinken.</p>
   </div>
