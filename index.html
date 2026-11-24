@@ -127,6 +127,7 @@ form#af .chk{display:flex;gap:.6rem;align-items:flex-start;font-weight:400}
 form#af .chk input{width:auto;margin-top:.35rem}
 .checks2{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .9rem}
 @media(max-width:600px){.checks2{grid-template-columns:1fr}}
+form#af [hidden]{display:none!important}
 .small{font-size:.9rem;color:var(--muted);margin:0}
 .actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
 .actions .btn{cursor:pointer;font:inherit;font-weight:600}
@@ -165,27 +166,37 @@ form#af .chk input{width:auto;margin-top:.35rem}
         <div><b>bundesweit</b>im Einsatz</div>
       </div>
     </div>
-    <div class="topo" role="img" aria-label="Schema: Starlink oder 5G, Router mit Firewall, Switch, zwei Bürocontainer mit LAN und WLAN">
+    <div class="topo" role="img" aria-label="Schema: Starlink oder 5G am Router im Hauptcontainer mit Switch und LAN-Arbeitsplätzen; die weiteren Container sind per WLAN angebunden, auf Wunsch auch per LAN-Kabel">
       <svg viewBox="0 0 400 330" fill="none" stroke="#2d3644" stroke-width="2">
         <g stroke="#6e7886" stroke-width="5" stroke-linecap="round">
           <path d="M165 40a50 50 0 0 1 70 0"/><path d="M178 54a32 32 0 0 1 44 0"/>
         </g>
         <circle cx="200" cy="68" r="6" fill="#a11217" stroke="none"/>
         <text x="200" y="22" fill="#2d3644" stroke="none" text-anchor="middle" font-size="15" font-weight="600">Starlink / 5G</text>
-        <path d="M200 76v34"/>
-        <rect x="130" y="110" width="140" height="38" rx="3" fill="#a11217" stroke="none"/>
-        <text x="200" y="134" fill="#fff" stroke="none" text-anchor="middle" font-size="15" font-weight="600">Router / Firewall</text>
-        <path d="M200 148v26"/>
-        <rect x="130" y="174" width="140" height="38" rx="3" fill="none"/>
-        <text x="200" y="198" fill="#2d3644" stroke="none" text-anchor="middle" font-size="15" font-weight="600">Haupt-Switch</text>
-        <path d="M200 212v20M95 232h210M95 232v16M305 232v16"/>
-        <rect x="30" y="248" width="130" height="64" rx="3" fill="#fff"/>
-        <rect x="240" y="248" width="130" height="64" rx="3" fill="none"/>
+        <path d="M200 76V100"/>
+        <rect x="50" y="100" width="300" height="122" rx="4" fill="#fff"/>
+        <text x="64" y="120" fill="#2d3644" stroke="none" font-size="13" font-weight="600">Hauptcontainer (mit LAN)</text>
+        <rect x="68" y="132" width="120" height="36" rx="3" fill="#a11217" stroke="none"/>
+        <text x="128" y="155" fill="#fff" stroke="none" text-anchor="middle" font-size="14" font-weight="600">Router / Firewall</text>
+        <path d="M188 150H212"/>
+        <rect x="212" y="132" width="120" height="36" rx="3" fill="none"/>
+        <text x="272" y="155" fill="#2d3644" stroke="none" text-anchor="middle" font-size="14" font-weight="600">Switch</text>
         <g fill="#2d3644" stroke="none" font-size="13" text-anchor="middle">
-          <text x="95" y="272" font-weight="600">Bürocontainer 1</text><text x="95" y="292">LAN + WLAN</text>
-          <text x="305" y="272" font-weight="600">Bürocontainer 2</text><text x="305" y="292">LAN + WLAN</text>
+          <text x="128" y="196">WLAN-Access-Point</text>
+          <text x="272" y="196">LAN-Arbeitsplätze</text>
+        </g>
+        <g stroke="#6e7886" stroke-dasharray="6 5">
+          <path d="M110 222L90 262"/><path d="M290 222L310 262"/>
+        </g>
+        <text x="200" y="246" fill="#6e7886" stroke="none" text-anchor="middle" font-size="13" font-weight="600">WLAN</text>
+        <rect x="30" y="262" width="130" height="52" rx="3" fill="#fff"/>
+        <rect x="240" y="262" width="130" height="52" rx="3" fill="#fff"/>
+        <g fill="#2d3644" stroke="none" font-size="13" text-anchor="middle">
+          <text x="95" y="285" font-weight="600">Container 2</text><text x="95" y="302">nur WLAN</text>
+          <text x="305" y="285" font-weight="600">Container 3</text><text x="305" y="302">nur WLAN</text>
         </g>
       </svg>
+      <p class="small" style="margin:.8rem 0 0">WLAN ist in allen Containern Standard. LAN-Kabel inklusive Switch zu weiteren Containern gibt es gegen Aufpreis.</p>
     </div>
   </div>
 </div>
@@ -219,7 +230,7 @@ form#af .chk input{width:auto;margin-top:.35rem}
       <div class="item r"><h3>Internetversorgung</h3>
         <ul><li>Starlink für temporäre Standorte</li><li>4G/5G-Mobilfunk als Alternative oder Ergänzung</li><li>Prüfung von Empfang und Standort</li><li>Einrichtung, Überwachung, Fehleranalyse</li></ul></div>
       <div class="item"><h3>Netzwerkinfrastruktur</h3>
-        <ul><li>Router und Firewalls</li><li>Managed und Unmanaged Switches</li><li>WLAN-Access-Points</li><li>LAN-Verkabelung, Netzwerkdosen, Patchfelder</li><li>Verbindung mehrerer Container</li></ul></div>
+        <ul><li>Router und Firewalls</li><li>Managed und Unmanaged Switches</li><li>WLAN-Access-Points</li><li>LAN-Anschlüsse und Arbeitsplätze im Hauptcontainer</li><li>WLAN in allen Containern (im Standard enthalten)</li><li>LAN-Kabel und Switch für weitere Container gegen Aufpreis</li></ul></div>
       <div class="item r"><h3>Laufende Betreuung</h3>
         <ul><li>Technische Fernwartung</li><li>Prüfung der Internetverbindung</li><li>WLAN-Optimierung</li><li>Störungsannahme und Fehlerbehebung</li><li>Dokumentation der Installation</li></ul></div>
       <div class="item"><h3>Projektleistungen</h3>
@@ -232,7 +243,7 @@ form#af .chk input{width:auto;margin-top:.35rem}
   <div class="wrap two">
     <div>
       <h2>Warum BAUCONNECT?</h2>
-      <p>Wir sind kein gewöhnlicher Internet-Wiederverkäufer, sondern Spezialist für Baustellennetze – mit Erfahrung aus realen Installationen. Aktuell betreuen wir 13 Baustellen mit Starlink, inklusive Router, Switches, WLAN und LAN in den Containern.</p>
+      <p>Wir sind kein gewöhnlicher Internet-Wiederverkäufer, sondern Spezialist für Baustellennetze – mit Erfahrung aus realen Installationen. Aktuell betreuen wir 13 Baustellen mit Starlink, inklusive Router, Switches und WLAN in den Containern sowie LAN-Anschlüssen im Hauptcontainer.</p>
     </div>
     <ul class="checks">
       <li>Baustellenspezifische Planung statt Standardvertrag</li>
@@ -253,7 +264,7 @@ form#af .chk input{width:auto;margin-top:.35rem}
         <thead><tr><th>Branche</th><th>Typischer Bedarf</th></tr></thead>
         <tbody>
           <tr><td>Gleisbau</td><td>Internet für Bauleitung, Container und Teams</td></tr>
-          <tr><td>Tiefbau</td><td>Temporäre Internet- und LAN-Versorgung</td></tr>
+          <tr><td>Tiefbau</td><td>Temporäre Internet- und WLAN-Versorgung</td></tr>
           <tr><td>Straßenbau</td><td>WLAN und Arbeitsplätze auf der Baustelle</td></tr>
           <tr><td>Hochbau</td><td>Internet für Bauleitung und Verwaltung</td></tr>
           <tr><td>Generalunternehmer</td><td>Versorgung mehrerer Baustellen</td></tr>
@@ -307,12 +318,12 @@ form#af .chk input{width:auto;margin-top:.35rem}
       <div class="card"><h3>Basis</h3><div class="price">ab ca. 950 €<small> einmalig</small></div>
         <p>1 Container mit Starlink, Router und WLAN.</p>
         <ul><li>Arbeitszeit ca. 4 Std. (340 €)</li><li>Material ca. 590 €: Halterung, Router/Firewall, WLAN-Access-Point, Kabel, Netzteile</li><li>Einrichtung, Test, Übergabe</li></ul></div>
-      <div class="card hl"><h3>Standard</h3><div class="price">ab ca. 2.100 €<small> einmalig</small></div>
-        <p>2 bis 3 Container mit LAN-Arbeitsplätzen und WLAN.</p>
-        <ul><li>Arbeitszeit ca. 8 Std. (680 €)</li><li>Material ca. 1.380 €: Halterung, Router/Firewall, PoE-Switch, 3 Access Points, ca. 150 m Kabel, Netzwerkdosen</li><li>Einrichtung, Test, Dokumentation</li></ul></div>
-      <div class="card"><h3>Groß</h3><div class="price">ab ca. 4.200 €<small> einmalig</small></div>
-        <p>4 bis 6 Container, mehrere Switches, Verbindung zwischen den Containern.</p>
-        <ul><li>Arbeitszeit ca. 16 Std. (1.360 €)</li><li>Material ca. 2.800 €: Netzwerktechnik, Access Points, Kabel und Zubehör</li><li>Einrichtung, Test, Dokumentation</li></ul></div>
+      <div class="card hl"><h3>Standard</h3><div class="price">ab ca. 1.560 €<small> einmalig</small></div>
+        <p>2 bis 3 Container: LAN im Hauptcontainer, WLAN in den übrigen (LAN dort gegen Aufpreis).</p>
+        <ul><li>Arbeitszeit ca. 6 Std. (510 €)</li><li>Material ca. 1.050 €: Halterung, Router/Firewall, PoE-Switch, 3 Access Points, LAN-Kabel und Netzwerkdosen im Hauptcontainer</li><li>Einrichtung, Test, Dokumentation</li></ul></div>
+      <div class="card"><h3>Groß</h3><div class="price">ab ca. 2.500 €<small> einmalig</small></div>
+        <p>4 bis 6 Container: LAN im Hauptcontainer, WLAN in allen weiteren (LAN dort gegen Aufpreis).</p>
+        <ul><li>Arbeitszeit ca. 10 Std. (850 €)</li><li>Material ca. 1.650 €: Router/Firewall, größerer Switch, bis zu 5 Access Points, Kabel und Zubehör</li><li>Einrichtung, Test, Dokumentation</li></ul></div>
     </div>
 
     <h3 style="margin-top:2.5rem">Anfahrt, Rückbau und Beispiel</h3>
@@ -324,11 +335,12 @@ form#af .chk input{width:auto;margin-top:.35rem}
           <tr><td>Fahrzeit des Technikers</td><td>45 € pro Stunde</td></tr>
           <tr><td>Technikerstunde vor Ort</td><td>85 € pro Stunde</td></tr>
           <tr><td>Starlink-Kit (Hardware)</td><td>418,80 € einmalig</td></tr>
-          <tr><td>Rückbau Basis / Standard / Groß</td><td>ca. 200 € / 400 € / 750 € zzgl. Anfahrt</td></tr>
+          <tr><td>Optional: LAN in einem weiteren Container (Switch, Kabel, Montage)</td><td>ca. 290 € je Container bis ca. 30 m Kabelweg, jede weiteren 10 m ca. 25 €</td></tr>
+          <tr><td>Rückbau Basis / Standard / Groß</td><td>ca. 200 € / 300 € / 500 € zzgl. Anfahrt</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note"><b>Beispiel:</b> Standard-Installation, Baustelle 150 km entfernt. Installation 2.060 € + Anfahrt 450 € (300 km und 4 Std. Fahrzeit) + Starlink-Kit 418,80 € = ca. 2.930 € einmalig, danach der monatliche Tarif. Alle Preise netto, unverbindlich und abhängig von Standort und Aufwand. Verbindlich ist Ihr Angebot nach der Standortprüfung.</p>
+    <p class="note"><b>Beispiel:</b> Standard-Installation, Baustelle 150 km entfernt. Installation 1.560 € + Anfahrt 450 € (300 km und 4 Std. Fahrzeit) + Starlink-Kit 418,80 € = ca. 2.430 € einmalig, danach der monatliche Tarif. Alle Preise netto, unverbindlich und abhängig von Standort und Aufwand. Verbindlich ist Ihr Angebot nach der Standortprüfung.</p>
 
     <h3 style="margin-top:2.5rem">Weitere Leistungen</h3>
     <div class="tw">
@@ -430,13 +442,13 @@ form#af .chk input{width:auto;margin-top:.35rem}
           <select name="laufzeit"><option value="">Bitte wählen</option><option>Unter 3 Monate</option><option>3 bis 6 Monate</option><option>6 bis 12 Monate</option><option>Über 12 Monate</option><option>Weiß ich noch nicht</option></select></label>
       </div>
       <div class="row">
-        <label>Anzahl Container / Büroeinheiten *<input name="container" type="number" min="1" required></label>
+        <label>Anzahl Container insgesamt (inkl. Hauptcontainer) *<input name="container" type="number" min="1" required></label>
         <label>Anzahl Nutzer (ca.) *<input name="nutzer" type="number" min="1" required></label>
       </div>
       <div class="row">
         <label>Strom vor Ort
           <select name="strom"><option value="">Bitte wählen</option><option>Vorhanden</option><option>Noch nicht vorhanden</option><option>Weiß ich nicht</option></select></label>
-        <label>Entfernung der Container zueinander
+        <label>Entfernung der Container zum Hauptcontainer
           <select name="abstand"><option value="">Bitte wählen</option><option>Nebeneinander (unter 20 m)</option><option>20 bis 100 m</option><option>Über 100 m</option><option>Weiß ich nicht</option></select></label>
       </div>
     </fieldset>
@@ -446,13 +458,24 @@ form#af .chk input{width:auto;margin-top:.35rem}
         <select name="internet"><option>Starlink (Empfehlung)</option><option>Mobilfunk 4G/5G</option><option>Beides als Ausfallsicherung</option><option>Bitte beraten Sie mich</option></select></label>
       <label>Datenvolumen (Richtwert)
         <select name="daten"><option>Bitte beraten Sie mich</option><option>50 GB (Backup, kleines Büro)</option><option>500 GB (2 bis 4 Nutzer)</option><option>1 TB (5 bis 10 Nutzer)</option><option>2 TB (10 bis 20 Nutzer)</option></select></label>
+      <p class="small">WLAN in allen Containern ist im Standard enthalten.</p>
       <div class="checks2" role="group" aria-label="Leistungen">
-        <label class="chk"><input type="checkbox" name="leist" value="WLAN"> WLAN in den Containern</label>
-        <label class="chk"><input type="checkbox" name="leist" value="LAN-Verkabelung"> LAN-Verkabelung / Arbeitsplätze</label>
+        <label class="chk"><input type="checkbox" name="leist" value="LAN im Hauptcontainer"> LAN-Anschlüsse im Hauptcontainer</label>
+        <label class="chk"><input type="checkbox" name="leist" value="LAN-Kabel zu weiteren Containern"> LAN auch in weiteren Containern (Aufpreis, inkl. Switch)</label>
         <label class="chk"><input type="checkbox" name="leist" value="Installation vor Ort"> Installation vor Ort</label>
         <label class="chk"><input type="checkbox" name="leist" value="Laufende Betreuung"> Laufende Betreuung</label>
         <label class="chk"><input type="checkbox" name="leist" value="Hardware mieten"> Hardware mieten</label>
         <label class="chk"><input type="checkbox" name="leist" value="Rückbau nach Projektende"> Rückbau nach Projektende</label>
+      </div>
+      <div id="lan-haupt" class="row" hidden>
+        <label>Wie viele LAN-Anschlüsse im Hauptcontainer? *<input name="lan_haupt" type="number" min="1" disabled required></label>
+        <span></span>
+      </div>
+      <div id="lan-weitere" class="row" hidden>
+        <label>In wie vielen weiteren Containern LAN? *<input name="lan_container" type="number" min="1" disabled required></label>
+        <label>LAN-Anschlüsse je Container (ca.) *<input name="lan_je" type="number" min="1" disabled required></label>
+        <label>Kabelweg zum Hauptcontainer (ca. Meter)<input name="lan_meter" type="number" min="1" disabled placeholder="z. B. 25"></label>
+        <span></span>
       </div>
     </fieldset>
 
@@ -478,6 +501,16 @@ form#af .chk input{width:auto;margin-top:.35rem}
   document.getElementById('af-close').addEventListener('click',close);
   document.getElementById('af-cancel').addEventListener('click',close);
   dlg.addEventListener('click',function(e){ if(e.target===dlg) close(); });
+  function toggleBlock(id,show){
+    var b=document.getElementById(id); b.hidden=!show;
+    b.querySelectorAll('input').forEach(function(i){i.disabled=!show;});
+  }
+  function syncLan(){
+    toggleBlock('lan-haupt', f.querySelector('input[value="LAN im Hauptcontainer"]').checked);
+    toggleBlock('lan-weitere', f.querySelector('input[value="LAN-Kabel zu weiteren Containern"]').checked);
+  }
+  f.querySelectorAll('input[name="leist"]').forEach(function(c){c.addEventListener('change',syncLan);});
+  syncLan();
   f.addEventListener('submit',function(e){
     e.preventDefault();
     if(!f.checkValidity()){ f.reportValidity(); msg.textContent='Bitte füllen Sie alle Pflichtfelder (*) aus.'; return; }
@@ -487,8 +520,8 @@ form#af .chk input{width:auto;margin-top:.35rem}
       'Anfrage über die BAUCONNECT-Webseite','',
       'KONTAKT','Name: '+g('name'),'Firma: '+g('firma'),'E-Mail: '+g('email'),'Telefon: '+g('tel'),'',
       'BAUSTELLE','Standort: '+g('ort'),'Projekt: '+g('projekt'),'Gewünschter Start: '+g('start'),'Laufzeit: '+g('laufzeit'),
-      'Container / Büroeinheiten: '+g('container'),'Nutzer (ca.): '+g('nutzer'),'Strom vor Ort: '+g('strom'),'Abstand der Container: '+g('abstand'),'',
-      'BEDARF','Internet: '+g('internet'),'Datenvolumen: '+g('daten'),'Leistungen: '+leist,'',
+      'Container / Büroeinheiten: '+g('container'),'Nutzer (ca.): '+g('nutzer'),'Strom vor Ort: '+g('strom'),'Entfernung zum Hauptcontainer: '+g('abstand'),'',
+      'BEDARF','Internet: '+g('internet'),'Datenvolumen: '+g('daten'),'Leistungen: '+leist,'LAN-Anschlüsse im Hauptcontainer: '+g('lan_haupt'),'Weitere Container mit LAN: '+g('lan_container'),'LAN-Anschlüsse je weiterem Container: '+g('lan_je'),'Kabelweg zum Hauptcontainer (m): '+g('lan_meter'),'',
       'HINWEISE',g('msg'),'','Datenschutzhinweis zur Kenntnis genommen: ja'
     ].join('\n');
     var subject='Anfrage BAUCONNECT – '+g('firma')+' – '+g('ort');
