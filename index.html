@@ -131,6 +131,16 @@ form#af [hidden]{display:none!important}
 .small{font-size:.9rem;color:var(--muted);margin:0}
 .actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
 .actions .btn{cursor:pointer;font:inherit;font-weight:600}
+
+.ref{display:grid;grid-template-columns:1.2fr .8fr;gap:1.25rem;margin-top:2rem}
+@media(max-width:860px){.ref{grid-template-columns:1fr}}
+.ref .big{background:var(--white);border-left:5px solid var(--red);padding:1.6rem}
+.ref .stats{display:flex;gap:2rem;flex-wrap:wrap;margin:1.2rem 0 0}
+.ref .stats b{display:block;font:800 2.4rem/1 "Barlow Condensed",Arial,sans-serif;color:var(--red)}
+.ref .stats span{font-size:.95rem;color:var(--muted)}
+.ref .more{background:var(--white);border-left:5px solid var(--steel);padding:1.6rem}
+.names{list-style:none;padding:0;margin:1rem 0 0;display:flex;gap:.6rem;flex-wrap:wrap}
+.names li{font:700 1.4rem "Barlow Condensed",Arial,sans-serif;color:var(--navy);border:2px solid var(--steel);padding:.2rem .9rem;border-radius:3px;background:#fff}
 </style>
 </head>
 <body>
@@ -140,6 +150,7 @@ form#af [hidden]{display:none!important}
     <a href="#top" aria-label="BAUCONNECT Startseite"><img src="logo.png" alt="VE-LOG GmbH – BAUCONNECT, Internet für jeden Bauplatz"></a>
     <nav aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
+      <a href="#referenzen">Referenzen</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#pakete">Preise</a>
       <a href="#sicherheit">Sicherheit</a>
@@ -253,6 +264,29 @@ form#af [hidden]{display:none!important}
       <li>Hardware wird zurückgenommen und wiederverwendet</li>
       <li>Mehrere Standorte zentral betreut</li>
     </ul>
+  </div>
+</section>
+
+<section id="referenzen">
+  <div class="wrap">
+    <h2>Referenzen.</h2>
+    <p class="lead">Unsere Netze laufen im Alltag großer Auftraggeber und Bauunternehmen.</p>
+    <div class="ref">
+      <div class="big">
+        <h3>Deutsche Bahn</h3>
+        <p>Wir arbeiten für die Deutsche Bahn und haben an zwei Bürostandorten Internet und Netzwerk über BAUCONNECT aufgebaut. Versorgt werden Konferenzräume und mindestens 20 bis 30 Büros.</p>
+        <div class="stats">
+          <div><b>2</b><span>Bürostandorte</span></div>
+          <div><b>20–30+</b><span>Büros mit Internet</span></div>
+          <div><b>Konferenz-<br>räume</b><span>mit angebunden</span></div>
+        </div>
+      </div>
+      <div class="more">
+        <h3>Weitere Kunden</h3>
+        <p>Auch Bauunternehmen aus dem Gleis- und Tiefbau nutzen BAUCONNECT auf ihren Baustellen.</p>
+        <ul class="names"><li>Hubert</li><li>Wiebe</li></ul>
+      </div>
+    </div>
   </div>
 </section>
 
