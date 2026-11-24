@@ -10,15 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0c2b5b; --red:#a11217; --steel:#6e7886; --ink:#16233a; --muted:#53627a;
-  --bg:#fafbfc; --panel:#eef2f7; --line:#d5dce6; --white:#fff;
-  --wifi:#0a6bb5;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --navy:#8fb4ee; --red:#ff6b70; --steel:#9aa6b8; --ink:#e8edf5; --muted:#a3b0c4;
-    --bg:#0c1524; --panel:#13203a; --line:#25365a; --white:#13203a; --wifi:#6db3ee;
-  }
+  --navy:#2d3644; --red:#a11217; --steel:#6e7886; --ink:#2d3644; --muted:#5a6472;
+  --bg:#ffffff; --panel:#f1f3f6; --line:#d9dee5; --white:#ffffff;
+  --wifi:#a11217;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -34,13 +28,12 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset
 section{padding:4.5rem 0}
 .alt{background:var(--panel)}
 h2::after{content:"";display:block;width:90px;height:5px;margin-top:.7rem;background:linear-gradient(90deg,var(--red) 0 45%,var(--steel) 45%)}
-.contact h2::after{background:linear-gradient(90deg,#fff 0 45%,#9aa6b8 45%)}
 .lead{font-size:1.2rem;color:var(--muted)}
 
 /* Header */
 header{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem 1.25rem;max-width:1080px;margin:0 auto}
-.bar img{height:48px;width:auto;display:block;background:#fff;border-radius:4px}
+.bar img{height:60px;width:auto;display:block;background:#fff;border-radius:4px}
 nav{display:flex;gap:1.4rem;align-items:center;font-weight:600}
 nav a{color:var(--ink);text-decoration:none}
 nav a:hover{color:var(--red)}
@@ -51,7 +44,7 @@ nav a:hover{color:var(--red)}
 
 /* Hero */
 .hero{padding:4rem 0 3.5rem;background:var(--white);border-bottom:0;position:relative}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:linear-gradient(90deg,var(--navy) 0 50%,var(--red) 50% 80%,var(--steel) 80%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:linear-gradient(90deg,var(--red) 0 55%,var(--steel) 55% 85%,#d9dee5 85%)}
 .hero-logo{display:block;width:min(100%,430px);height:auto;margin:0 0 1.6rem;background:#fff;border-radius:6px}
 .lines{display:grid;gap:5px;width:140px;margin:0 0 1.2rem}
 .lines i{height:4px;background:linear-gradient(90deg,var(--steel),transparent)}
@@ -67,7 +60,7 @@ nav a:hover{color:var(--red)}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
 
 /* Topology */
-.topo{background:#0c2b5b;border-radius:6px;padding:1.5rem;color:#fff}
+.topo{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1.5rem;color:var(--ink)}
 .topo svg{width:100%;height:auto;display:block}
 .topo text{font-family:"Barlow",Arial,sans-serif}
 
@@ -75,7 +68,7 @@ nav a:hover{color:var(--red)}
 .grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:2rem}
 .item{background:var(--white);border-left:5px solid var(--steel);padding:1.2rem 1.3rem}
 .item.r{border-left-color:var(--red)}
-th{border-bottom:3px solid var(--navy)!important}
+
 .item p{margin:0;color:var(--muted);font-size:1rem}
 .item ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--muted)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
@@ -92,7 +85,7 @@ th{border-bottom:3px solid var(--navy)!important}
 .steps span{color:var(--muted)}
 
 /* Packages */
-.pk{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:2rem}
+.pk{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:2rem}
 .card{background:var(--white);border:1px solid var(--line);padding:1.6rem;display:flex;flex-direction:column}
 .card.hl{border:2px solid var(--red);position:relative}
 .price{font:800 3rem/1 "Barlow Condensed",Arial,sans-serif;color:var(--navy);margin:.5rem 0 .2rem}
@@ -105,15 +98,14 @@ th{border-bottom:3px solid var(--navy)!important}
 .tw{overflow-x:auto;margin-top:2rem}
 table{border-collapse:collapse;width:100%;min-width:520px;background:var(--white)}
 th,td{text-align:left;padding:.8rem 1rem;border-bottom:1px solid var(--line)}
-th{color:var(--navy);font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.2rem}
+th{border-bottom:3px solid var(--steel);color:var(--navy);font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.2rem}
 
 /* Contact */
-.contact{background:#0c2b5b;color:#fff}
-.contact h2,.contact p{color:#fff}
+.contact{background:var(--panel);color:var(--ink);border-top:1px solid var(--line)}
+
 .contact .btn{background:#fff;color:#0b2a55}
-footer{background:#071c3a;color:#c3cde0;padding:2rem 0;font-size:.95rem}
-footer a{color:#fff}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .contact,:root:not([data-theme="light"]) .topo{background:#0b2a55}}
+footer{background:#fff;color:var(--muted);border-top:6px solid var(--red);padding:2rem 0;font-size:.95rem}
+footer a{color:var(--red)}
 </style>
 </head>
 <body>
@@ -124,8 +116,9 @@ footer a{color:#fff}
     <nav aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
       <a href="#ablauf">Ablauf</a>
-      <a href="#pakete">Pakete</a>
+      <a href="#pakete">Preise</a>
       <a href="#sicherheit">Sicherheit</a>
+      <a href="https://www.ve-log.de" target="_blank" rel="noopener">VE-LOG GmbH</a>
       <a class="btn" href="#kontakt">Anfrage senden</a>
     </nav>
   </div>
@@ -136,7 +129,6 @@ footer a{color:#fff}
 <div class="hero">
   <div class="wrap hero-grid">
     <div>
-      <img class="hero-logo" src="logo.png" alt="VE-LOG GmbH – BAUCONNECT, Internet für jeden Bauplatz">
       <h1>Ihre Baustelle.<span>Unsere Verbindung.</span></h1>
       <p class="lead">Internet und Netzwerktechnik für Baustellen, temporäre Standorte und Bauprojekte in ganz Deutschland – schnell eingerichtet, professionell betreut und flexibel erweiterbar.</p>
       <div class="cta">
@@ -150,22 +142,22 @@ footer a{color:#fff}
       </div>
     </div>
     <div class="topo" role="img" aria-label="Schema: Starlink oder 5G, Router mit Firewall, Switch, zwei Bürocontainer mit LAN und WLAN">
-      <svg viewBox="0 0 400 330" fill="none" stroke="#fff" stroke-width="2">
-        <g stroke="#6db3ee" stroke-width="5" stroke-linecap="round">
+      <svg viewBox="0 0 400 330" fill="none" stroke="#2d3644" stroke-width="2">
+        <g stroke="#6e7886" stroke-width="5" stroke-linecap="round">
           <path d="M165 40a50 50 0 0 1 70 0"/><path d="M178 54a32 32 0 0 1 44 0"/>
         </g>
-        <circle cx="200" cy="68" r="6" fill="#6db3ee" stroke="none"/>
-        <text x="200" y="22" fill="#fff" stroke="none" text-anchor="middle" font-size="15" font-weight="600">Starlink / 5G</text>
+        <circle cx="200" cy="68" r="6" fill="#a11217" stroke="none"/>
+        <text x="200" y="22" fill="#2d3644" stroke="none" text-anchor="middle" font-size="15" font-weight="600">Starlink / 5G</text>
         <path d="M200 76v34"/>
         <rect x="130" y="110" width="140" height="38" rx="3" fill="#a11217" stroke="none"/>
         <text x="200" y="134" fill="#fff" stroke="none" text-anchor="middle" font-size="15" font-weight="600">Router / Firewall</text>
         <path d="M200 148v26"/>
         <rect x="130" y="174" width="140" height="38" rx="3" fill="none"/>
-        <text x="200" y="198" fill="#fff" stroke="none" text-anchor="middle" font-size="15" font-weight="600">Haupt-Switch</text>
+        <text x="200" y="198" fill="#2d3644" stroke="none" text-anchor="middle" font-size="15" font-weight="600">Haupt-Switch</text>
         <path d="M200 212v20M95 232h210M95 232v16M305 232v16"/>
-        <rect x="30" y="248" width="130" height="64" rx="3" fill="none"/>
+        <rect x="30" y="248" width="130" height="64" rx="3" fill="#fff"/>
         <rect x="240" y="248" width="130" height="64" rx="3" fill="none"/>
-        <g fill="#fff" stroke="none" font-size="13" text-anchor="middle">
+        <g fill="#2d3644" stroke="none" font-size="13" text-anchor="middle">
           <text x="95" y="272" font-weight="600">Bürocontainer 1</text><text x="95" y="292">LAN + WLAN</text>
           <text x="305" y="272" font-weight="600">Bürocontainer 2</text><text x="305" y="292">LAN + WLAN</text>
         </g>
@@ -267,34 +259,68 @@ footer a{color:#fff}
 
 <section id="pakete" class="alt">
   <div class="wrap">
-    <h2>Servicepakete.</h2>
-    <p class="lead">Monatliche Netzwerkbetreuung in drei Stufen. Internet, Hardware und Installation weisen wir je nach Vertrag separat aus.</p>
+    <h2>Preise für Ihre Baustelle.</h2>
+    <p class="lead">Starlink Business „Local Priority“ – eingerichtet und betreut von VE-LOG. Wählen Sie das Datenvolumen passend zur Anzahl Ihrer Nutzer.</p>
+    <h3 style="margin-top:2rem">Monatlich: Internet-Tarife</h3>
     <div class="pk">
-      <div class="card"><h3>START</h3><div class="price">199 €<small> / Monat</small></div>
-        <p>Für einzelne Container und kleine Baustellen.</p>
-        <ul><li>Basis-Netzwerkbetreuung</li><li>Fernwartung und Störungsannahme</li></ul></div>
-      <div class="card hl"><span class="tag">Beliebt</span><h3>PRO</h3><div class="price">349 €<small> / Monat</small></div>
-        <p>Für Baustellen mit mehreren Arbeitsplätzen.</p>
-        <ul><li>Erweiterte Betreuung</li><li>Netzwerküberwachung</li></ul></div>
-      <div class="card"><h3>BUSINESS</h3><div class="price">599 €<small> / Monat</small></div>
-        <p>Für größere Baustellen und Projekte.</p>
-        <ul><li>Umfangreichere Betreuung</li><li>Individuell erweiterbar</li></ul></div>
+      <div class="card"><h3>Local Priority 50 GB</h3><div class="price">44,40 €<small> / Monat</small></div>
+        <p>Backup-Anbindung und kleine Büros.</p>
+        <ul><li>Priorisiertes Netz</li><li>Einrichtung und Betreuung durch VE-LOG</li></ul></div>
+      <div class="card"><h3>Local Priority 500 GB</h3><div class="price">126,00 €<small> / Monat</small></div>
+        <p>Für etwa 2 bis 4 Nutzer.</p>
+        <ul><li>Priorisiertes Netz</li><li>Einrichtung und Betreuung durch VE-LOG</li></ul></div>
+      <div class="card hl"><h3>Local Priority 1 TB</h3><div class="price">228,00 €<small> / Monat</small></div>
+        <p>Für etwa 5 bis 10 Nutzer.</p>
+        <ul><li>Priorisiertes Netz</li><li>Einrichtung und Betreuung durch VE-LOG</li></ul></div>
+      <div class="card"><h3>Local Priority 2 TB</h3><div class="price">432,00 €<small> / Monat</small></div>
+        <p>Für etwa 10 bis 20 Nutzer.</p>
+        <ul><li>Priorisiertes Netz</li><li>Einrichtung und Betreuung durch VE-LOG</li></ul></div>
     </div>
+    <p class="note">Starlink-Hardware (Kit): einmalig 418,80 €. Alle Preise zzgl. gesetzlicher MwSt. Das Datenvolumen lässt sich bei Bedarf erweitern – sprechen Sie uns an.</p>
+    <h3 style="margin-top:2.5rem">Einmalig: Installation und Material</h3>
+    <p>Die Kosten hängen von Größe der Baustelle und Entfernung ab. Diese Richtpreise enthalten Arbeitszeit und Material, aber noch nicht die Anfahrt und das Starlink-Kit.</p>
+    <div class="pk">
+      <div class="card"><h3>Basis</h3><div class="price">ab ca. 950 €<small> einmalig</small></div>
+        <p>1 Container mit Starlink, Router und WLAN.</p>
+        <ul><li>Arbeitszeit ca. 4 Std. (340 €)</li><li>Material ca. 590 €: Halterung, Router/Firewall, WLAN-Access-Point, Kabel, Netzteile</li><li>Einrichtung, Test, Übergabe</li></ul></div>
+      <div class="card hl"><h3>Standard</h3><div class="price">ab ca. 2.100 €<small> einmalig</small></div>
+        <p>2 bis 3 Container mit LAN-Arbeitsplätzen und WLAN.</p>
+        <ul><li>Arbeitszeit ca. 8 Std. (680 €)</li><li>Material ca. 1.380 €: Halterung, Router/Firewall, PoE-Switch, 3 Access Points, ca. 150 m Kabel, Netzwerkdosen</li><li>Einrichtung, Test, Dokumentation</li></ul></div>
+      <div class="card"><h3>Groß</h3><div class="price">ab ca. 4.200 €<small> einmalig</small></div>
+        <p>4 bis 6 Container, mehrere Switches, Verbindung zwischen den Containern.</p>
+        <ul><li>Arbeitszeit ca. 16 Std. (1.360 €)</li><li>Material ca. 2.800 €: Netzwerktechnik, Access Points, Kabel und Zubehör</li><li>Einrichtung, Test, Dokumentation</li></ul></div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">Anfahrt, Rückbau und Beispiel</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Position</th><th>Richtpreis</th></tr></thead>
+        <tbody>
+          <tr><td>Anfahrt (Hin- und Rückfahrt)</td><td>0,90 € pro gefahrenem km</td></tr>
+          <tr><td>Fahrzeit des Technikers</td><td>45 € pro Stunde</td></tr>
+          <tr><td>Technikerstunde vor Ort</td><td>85 € pro Stunde</td></tr>
+          <tr><td>Starlink-Kit (Hardware)</td><td>418,80 € einmalig</td></tr>
+          <tr><td>Rückbau Basis / Standard / Groß</td><td>ca. 200 € / 400 € / 750 € zzgl. Anfahrt</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><b>Beispiel:</b> Standard-Installation, Baustelle 150 km entfernt. Installation 2.060 € + Anfahrt 450 € (300 km und 4 Std. Fahrzeit) + Starlink-Kit 418,80 € = ca. 2.930 € einmalig, danach der monatliche Tarif. Alle Preise netto, unverbindlich und abhängig von Standort und Aufwand. Verbindlich ist Ihr Angebot nach der Standortprüfung.</p>
+
     <h3 style="margin-top:2.5rem">Weitere Leistungen</h3>
     <div class="tw">
       <table>
         <thead><tr><th>Leistung</th><th>Abrechnung</th></tr></thead>
         <tbody>
-          <tr><td>Internetversorgung (Starlink/5G)</td><td>Monatlich</td></tr>
-          <tr><td>Hardwarevermietung</td><td>Monatliche Miete</td></tr>
-          <tr><td>Installation und Inbetriebnahme</td><td>Einmalige Projektpauschale</td></tr>
+          <tr><td>Netzwerkbetreuung (Router, Switch, WLAN)</td><td>Monatliche Pauschale nach Angebot</td></tr>
+          <tr><td>Hardwarevermietung</td><td>Monatliche Miete nach Angebot</td></tr>
+          <tr><td>Installation und Inbetriebnahme</td><td>Einmalig, siehe Installationspreise</td></tr>
           <tr><td>Erweiterung</td><td>Einmalig oder wiederkehrend</td></tr>
           <tr><td>Störungsservice</td><td>Nach Aufwand oder Servicevertrag</td></tr>
-          <tr><td>Rückbau</td><td>Einmalige Projektpauschale</td></tr>
+          <tr><td>Rückbau</td><td>Einmalig, siehe oben</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note">Alle Preise netto, zzgl. MwSt. Die Pakete sind Richtwerte; verbindlich ist das Angebot für Ihre Baustelle. Bei großen oder technisch anspruchsvollen Standorten kalkulieren wir individuell.</p>
+    <p class="note">Für große oder technisch anspruchsvolle Standorte erstellen wir ein individuelles Angebot.</p>
   </div>
 </section>
 
@@ -316,12 +342,27 @@ footer a{color:#fff}
   </div>
 </section>
 
+<section id="ueber-ve-log">
+  <div class="wrap two">
+    <div>
+      <h2>BAUCONNECT ist VE-LOG.</h2>
+      <p>BAUCONNECT ist der Geschäftsbereich der VE-LOG GmbH für Internet und Netzwerktechnik auf Baustellen. Dahinter steht ein Unternehmen, das selbst im Gleisbau und Tiefbau zu Hause ist – wir kennen die Abläufe auf Ihrer Baustelle.</p>
+      <p><a class="btn ghost" href="https://www.ve-log.de" target="_blank" rel="noopener">Zur Webseite der VE-LOG GmbH</a></p>
+    </div>
+    <ul class="checks">
+      <li>Eine Firma, ein Ansprechpartner für Internet und Netzwerk</li>
+      <li>Technik-Know-how direkt aus dem Baustellenbetrieb</li>
+      <li>Persönlich erreichbar unter <a href="mailto:technik@ve-log.de">technik@ve-log.de</a></li>
+    </ul>
+  </div>
+</section>
+
 <section id="kontakt" class="contact">
   <div class="wrap">
     <h2>Ihre Baustelle braucht Internet?</h2>
     <p>Schicken Sie uns Standort, Containeranzahl, Nutzerzahl und Laufzeit. Wir melden uns mit einer Einschätzung und einem Angebot.</p>
     <p><a class="btn" href="mailto:technik@ve-log.de?subject=Anfrage%20BAUCONNECT&amp;body=Standort%3A%0AAnzahl%20Container%3A%0AAnzahl%20Nutzer%3A%0AGeplante%20Laufzeit%3A%0AAnsprechpartner%20und%20Telefon%3A">Anfrage per E-Mail</a></p>
-    <p style="font-size:.95rem;opacity:.85;margin-bottom:0">Oder direkt: <a href="mailto:technik@ve-log.de" style="color:#fff">technik@ve-log.de</a></p>
+    <p style="font-size:.95rem;color:var(--muted);margin-bottom:0">Oder direkt: <a href="mailto:technik@ve-log.de">technik@ve-log.de</a> · <a href="tel:+499131751510">+49 9131 7515-10</a> · <a href="https://www.ve-log.de" target="_blank" rel="noopener">ve-log.de</a></p>
   </div>
 </section>
 
@@ -329,9 +370,10 @@ footer a{color:#fff}
 
 <footer>
   <div class="wrap">
-    <img src="logo.png" alt="BAUCONNECT – VE-LOG GmbH" style="height:70px;width:auto;background:#fff;border-radius:6px;padding:4px 10px;margin-bottom:1rem;display:block">
-    <p style="margin:0 0 .4rem"><b>BAUCONNECT</b> – eine Marke der VE-LOG GmbH · Internet für jeden Bauplatz.</p>
-    <p style="margin:0">Impressum und Datenschutz: bitte hier verlinken.</p>
+    <img src="logo.png" alt="BAUCONNECT – VE-LOG GmbH" style="height:80px;width:auto;margin-bottom:1rem;display:block">
+    <p style="margin:0 0 .4rem"><b>BAUCONNECT</b> – eine Marke der <a href="https://www.ve-log.de" target="_blank" rel="noopener">VE-LOG GmbH</a> · Internet für jeden Bauplatz.</p>
+    <p style="margin:0">VE-LOG GmbH · Sperberweg 15 · 91056 Erlangen · <a href="tel:+499131751510">+49 9131 7515-10</a></p>
+    <p style="margin:0"><a href="https://www.ve-log.de/impressum.html" target="_blank" rel="noopener">Impressum</a> · <a href="https://www.ve-log.de/datenschutz.html" target="_blank" rel="noopener">Datenschutz</a></p>
   </div>
 </footer>
 
