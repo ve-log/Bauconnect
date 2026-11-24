@@ -106,6 +106,30 @@ th{border-bottom:3px solid var(--steel);color:var(--navy);font-family:"Barlow Co
 .contact .btn{background:#fff;color:#0b2a55}
 footer{background:#fff;color:var(--muted);border-top:6px solid var(--red);padding:2rem 0;font-size:.95rem}
 footer a{color:var(--red)}
+
+/* Anfrage-Formular */
+dialog#anfrage{border:0;border-radius:6px;padding:0;width:min(680px,94vw);max-height:92vh;color:var(--ink);background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog#anfrage::backdrop{background:rgba(30,36,46,.6)}
+.dlg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:1.3rem 1.5rem;border-bottom:5px solid var(--red);position:sticky;top:0;background:#fff;z-index:1}
+.dlg-head h2{font-size:2rem;margin:0}
+.dlg-head h2::after{display:none}
+.dlg-head p{margin:.2rem 0 0;color:var(--muted);font-size:.95rem}
+.x{background:none;border:0;font-size:2rem;line-height:1;cursor:pointer;color:var(--ink);padding:0 .3rem}
+form#af{padding:1.2rem 1.5rem 1.6rem;display:grid;gap:1rem}
+form#af fieldset{border:1px solid var(--line);border-radius:4px;padding:1rem;margin:0;display:grid;gap:.9rem}
+form#af legend{font:700 1.25rem "Barlow Condensed",Arial,sans-serif;color:var(--navy);padding:0 .4rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media(max-width:600px){.row{grid-template-columns:1fr}}
+form#af label{display:grid;gap:.25rem;font-weight:600;font-size:.95rem}
+form#af input,form#af select,form#af textarea{font:inherit;font-weight:400;padding:.6rem .7rem;border:1px solid #b9c1cc;border-radius:3px;background:#fff;color:var(--ink);width:100%}
+form#af input:focus,form#af select:focus,form#af textarea:focus{outline:3px solid rgba(161,18,23,.35);border-color:var(--red)}
+form#af .chk{display:flex;gap:.6rem;align-items:flex-start;font-weight:400}
+form#af .chk input{width:auto;margin-top:.35rem}
+.checks2{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .9rem}
+@media(max-width:600px){.checks2{grid-template-columns:1fr}}
+.small{font-size:.9rem;color:var(--muted);margin:0}
+.actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+.actions .btn{cursor:pointer;font:inherit;font-weight:600}
 </style>
 </head>
 <body>
@@ -119,7 +143,7 @@ footer a{color:var(--red)}
       <a href="#pakete">Preise</a>
       <a href="#sicherheit">Sicherheit</a>
       <a href="https://www.ve-log.de" target="_blank" rel="noopener">VE-LOG GmbH</a>
-      <a class="btn" href="#kontakt">Anfrage senden</a>
+      <a class="btn" href="#kontakt" data-open-form>Anfrage senden</a>
     </nav>
   </div>
 </header>
@@ -132,7 +156,7 @@ footer a{color:var(--red)}
       <h1>Ihre Baustelle.<span>Unsere Verbindung.</span></h1>
       <p class="lead">Internet und Netzwerktechnik für Baustellen, temporäre Standorte und Bauprojekte in ganz Deutschland – schnell eingerichtet, professionell betreut und flexibel erweiterbar.</p>
       <div class="cta">
-        <a class="btn" href="#kontakt">Baustelle anfragen</a>
+        <a class="btn" href="#kontakt" data-open-form>Baustelle anfragen</a>
         <a class="btn ghost" href="#leistungen">Leistungen ansehen</a>
       </div>
       <div class="facts">
@@ -361,7 +385,7 @@ footer a{color:var(--red)}
   <div class="wrap">
     <h2>Ihre Baustelle braucht Internet?</h2>
     <p>Schicken Sie uns Standort, Containeranzahl, Nutzerzahl und Laufzeit. Wir melden uns mit einer Einschätzung und einem Angebot.</p>
-    <p><a class="btn" href="mailto:technik@ve-log.de?subject=Anfrage%20BAUCONNECT&amp;body=Standort%3A%0AAnzahl%20Container%3A%0AAnzahl%20Nutzer%3A%0AGeplante%20Laufzeit%3A%0AAnsprechpartner%20und%20Telefon%3A">Anfrage per E-Mail</a></p>
+    <p><a class="btn" href="mailto:technik@ve-log.de?subject=Anfrage%20BAUCONNECT" data-open-form>Anfrage-Formular öffnen</a></p>
     <p style="font-size:.95rem;color:var(--muted);margin-bottom:0">Oder direkt: <a href="mailto:technik@ve-log.de">technik@ve-log.de</a> · <a href="tel:+499131751510">+49 9131 7515-10</a> · <a href="https://www.ve-log.de" target="_blank" rel="noopener">ve-log.de</a></p>
   </div>
 </section>
@@ -377,5 +401,101 @@ footer a{color:var(--red)}
   </div>
 </footer>
 
+
+<dialog id="anfrage" aria-labelledby="af-title">
+  <div class="dlg-head">
+    <div><h2 id="af-title">Anfrage senden</h2><p>Die wichtigsten Angaben für Ihr Angebot. Pflichtfelder sind mit * markiert.</p></div>
+    <button class="x" type="button" id="af-close" aria-label="Schließen">×</button>
+  </div>
+  <form id="af" novalidate>
+    <fieldset><legend>Ihre Kontaktdaten</legend>
+      <div class="row">
+        <label>Name *<input name="name" autocomplete="name" required></label>
+        <label>Firma *<input name="firma" autocomplete="organization" required></label>
+      </div>
+      <div class="row">
+        <label>E-Mail *<input name="email" type="email" autocomplete="email" required></label>
+        <label>Telefon<input name="tel" type="tel" autocomplete="tel"></label>
+      </div>
+    </fieldset>
+
+    <fieldset><legend>Ihre Baustelle</legend>
+      <div class="row">
+        <label>Standort (PLZ und Ort) *<input name="ort" required placeholder="z. B. 94447 Plattling"></label>
+        <label>Projektname<input name="projekt"></label>
+      </div>
+      <div class="row">
+        <label>Gewünschter Start *<input name="start" type="date" required></label>
+        <label>Geplante Laufzeit
+          <select name="laufzeit"><option value="">Bitte wählen</option><option>Unter 3 Monate</option><option>3 bis 6 Monate</option><option>6 bis 12 Monate</option><option>Über 12 Monate</option><option>Weiß ich noch nicht</option></select></label>
+      </div>
+      <div class="row">
+        <label>Anzahl Container / Büroeinheiten *<input name="container" type="number" min="1" required></label>
+        <label>Anzahl Nutzer (ca.) *<input name="nutzer" type="number" min="1" required></label>
+      </div>
+      <div class="row">
+        <label>Strom vor Ort
+          <select name="strom"><option value="">Bitte wählen</option><option>Vorhanden</option><option>Noch nicht vorhanden</option><option>Weiß ich nicht</option></select></label>
+        <label>Entfernung der Container zueinander
+          <select name="abstand"><option value="">Bitte wählen</option><option>Nebeneinander (unter 20 m)</option><option>20 bis 100 m</option><option>Über 100 m</option><option>Weiß ich nicht</option></select></label>
+      </div>
+    </fieldset>
+
+    <fieldset><legend>Was brauchen Sie?</legend>
+      <label>Internetverbindung
+        <select name="internet"><option>Starlink (Empfehlung)</option><option>Mobilfunk 4G/5G</option><option>Beides als Ausfallsicherung</option><option>Bitte beraten Sie mich</option></select></label>
+      <label>Datenvolumen (Richtwert)
+        <select name="daten"><option>Bitte beraten Sie mich</option><option>50 GB (Backup, kleines Büro)</option><option>500 GB (2 bis 4 Nutzer)</option><option>1 TB (5 bis 10 Nutzer)</option><option>2 TB (10 bis 20 Nutzer)</option></select></label>
+      <div class="checks2" role="group" aria-label="Leistungen">
+        <label class="chk"><input type="checkbox" name="leist" value="WLAN"> WLAN in den Containern</label>
+        <label class="chk"><input type="checkbox" name="leist" value="LAN-Verkabelung"> LAN-Verkabelung / Arbeitsplätze</label>
+        <label class="chk"><input type="checkbox" name="leist" value="Installation vor Ort"> Installation vor Ort</label>
+        <label class="chk"><input type="checkbox" name="leist" value="Laufende Betreuung"> Laufende Betreuung</label>
+        <label class="chk"><input type="checkbox" name="leist" value="Hardware mieten"> Hardware mieten</label>
+        <label class="chk"><input type="checkbox" name="leist" value="Rückbau nach Projektende"> Rückbau nach Projektende</label>
+      </div>
+    </fieldset>
+
+    <label>Weitere Hinweise<textarea name="msg" rows="3" placeholder="z. B. mehrere Baustellen, besondere Anforderungen, Zufahrt"></textarea></label>
+
+    <label class="chk"><input type="checkbox" name="dsgvo" required> <span>Ich habe die <a href="https://www.ve-log.de/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. *</span></label>
+
+    <p class="small" id="af-msg" role="status"></p>
+    <div class="actions">
+      <button class="btn" type="submit">Anfrage senden</button>
+      <button class="btn ghost" type="button" id="af-cancel">Abbrechen</button>
+    </div>
+    <p class="small">Beim Senden öffnet sich Ihr E-Mail-Programm mit der fertigen Anfrage an technik@ve-log.de. Sie müssen sie dort nur noch abschicken.</p>
+  </form>
+</dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('anfrage'), f=document.getElementById('af'), msg=document.getElementById('af-msg');
+  function open(e){ if(e) e.preventDefault(); if(dlg.showModal){dlg.showModal();} else {dlg.setAttribute('open','');} }
+  function close(){ if(dlg.close){dlg.close();} else {dlg.removeAttribute('open');} }
+  document.querySelectorAll('[data-open-form]').forEach(function(a){a.addEventListener('click',open);});
+  document.getElementById('af-close').addEventListener('click',close);
+  document.getElementById('af-cancel').addEventListener('click',close);
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) close(); });
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.checkValidity()){ f.reportValidity(); msg.textContent='Bitte füllen Sie alle Pflichtfelder (*) aus.'; return; }
+    var d=new FormData(f), g=function(k){return (d.get(k)||'').toString().trim()||'–';};
+    var leist=d.getAll('leist').join(', ')||'–';
+    var body=[
+      'Anfrage über die BAUCONNECT-Webseite','',
+      'KONTAKT','Name: '+g('name'),'Firma: '+g('firma'),'E-Mail: '+g('email'),'Telefon: '+g('tel'),'',
+      'BAUSTELLE','Standort: '+g('ort'),'Projekt: '+g('projekt'),'Gewünschter Start: '+g('start'),'Laufzeit: '+g('laufzeit'),
+      'Container / Büroeinheiten: '+g('container'),'Nutzer (ca.): '+g('nutzer'),'Strom vor Ort: '+g('strom'),'Abstand der Container: '+g('abstand'),'',
+      'BEDARF','Internet: '+g('internet'),'Datenvolumen: '+g('daten'),'Leistungen: '+leist,'',
+      'HINWEISE',g('msg'),'','Datenschutzhinweis zur Kenntnis genommen: ja'
+    ].join('\n');
+    var subject='Anfrage BAUCONNECT – '+g('firma')+' – '+g('ort');
+    msg.textContent='Ihr E-Mail-Programm wird geöffnet …';
+    window.location.href='mailto:technik@ve-log.de?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  });
+})();
+</script>
 </body>
 </html>
